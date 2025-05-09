@@ -13,7 +13,7 @@ COPY dnsmasq.conf /etc/dnsmasq.conf
 RUN mkdir -p /mdns-dns
 COPY --from=build /app /mdns-dns
 
-COPY script.sh /script.sh
-RUN chmod +x /script.sh
+COPY docker-entrypoint.sh /docker-entrypoint.sh
+RUN chmod +x /docker-entrypoint.sh
 
-CMD ["/script.sh"]
+CMD ["/docker-entrypoint.sh"]
